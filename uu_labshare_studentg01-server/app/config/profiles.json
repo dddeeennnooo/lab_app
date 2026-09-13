@@ -1,0 +1,79 @@
+{
+  "{asid}": {
+    "profileList": ["AsidAuthorities", "AsidExecutives", "AsidLicenseOwner", "Public", "Readers"],
+    "useCaseMap": {
+    }
+  },
+  "*": {
+    "profileList": ["Authorities", "Executives", "Readers", "AwidLicenseOwner", "Public", "Authenticated", "AwidInitiator"],
+    "useCaseMap": {
+      "sys/uuAppWorkspace/init": {
+        "sysStateList": ["created"],
+        "profileList": ["AwidLicenseOwner"]
+      },
+      "sys/uuAppWorkspace/load": {
+        "sysStateList": ["created", "assigned", "active", "restricted", "readOnly", "closed", "suspended"],
+        "profileList": ["Authenticated"]
+      },
+      "sys/uuAppWorkspace/loadBasicData": {
+        "sysStateList": ["created", "assigned", "active", "restricted", "readOnly", "closed", "suspended"],
+        "profileList": ["Public"]
+      },
+      "sys/uuAppWorkspace/loadAbout": {
+        "sysStateList": ["created", "assigned", "active", "restricted", "readOnly", "closed", "suspended"],
+        "profileList": ["Public"]
+      },
+      "defaultUve": {
+        "profileList": ["Public"]
+      },
+      "sys/uuAppWorkspace/initUve": {
+        "sysStateList": ["created", "assigned"],
+        "profileList": ["Public", "AwidLicenseOwner", "AwidInitiator"]
+      },
+      "sys/uuAppWorkspace/apiConsole": {
+        "sysStateList": ["created", "assigned", "active", "restricted", "readOnly", "closed", "suspended"],
+        "profileList": ["Authenticated"]
+      },
+      "equipment/create": {
+        "sysStateList": ["active", "restricted"],
+        "profileList": ["Executives", "Authorities", "AwidLicenseOwner"]
+      },
+      "equipment/get": {
+        "sysStateList": ["active", "restricted", "readOnly"],
+        "profileList": ["Readers", "Executives", "Authorities", "AwidLicenseOwner"]
+      },
+      "equipment/list": {
+        "sysStateList": ["active", "restricted", "readOnly"],
+        "profileList": ["Public", "Readers", "Executives", "Authorities", "AwidLicenseOwner"]
+      },
+      "location/list": {
+        "sysStateList": ["active", "restricted", "readOnly"],
+        "profileList": ["Public", "Readers", "Executives", "Authorities", "AwidLicenseOwner"]
+      },
+      "location/get": {
+        "sysStateList": ["active", "restricted", "readOnly"],
+        "profileList": ["Public", "Readers", "Executives", "Authorities", "AwidLicenseOwner"]
+      },
+      "location/create": {
+        "sysStateList": ["active", "restricted"],
+        "profileList": ["Executives", "Authorities", "AwidLicenseOwner"]
+      },
+      "location/update": {
+        "sysStateList": ["active", "restricted"],
+        "profileList": ["Executives", "Authorities", "AwidLicenseOwner"]
+      },
+      "location/delete": {
+        "sysStateList": ["active", "restricted"],
+        "profileList": ["Authorities", "AwidLicenseOwner"]
+      },
+      "equipment/update": {
+        "sysStateList": ["active", "restricted"],
+        "profileList": ["Executives", "Authorities", "AwidLicenseOwner"]
+      },
+      "equipment/delete": {
+        "sysStateList": ["active", "restricted"],
+        "profileList": ["Authorities", "AwidLicenseOwner"]
+      }
+    }
+  }
+}

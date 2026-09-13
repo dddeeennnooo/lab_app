@@ -1,0 +1,23 @@
+{
+  "uuSubAppDataStore": {
+    "primary": {
+      "type": "uuAppObjectStore",
+      "realization": "MongoDB",
+      "schemaMap": {
+        "labshareStudent": {
+          "realization": "dao/LabshareStudentMongo",
+          "maxNoi": 1
+        },
+        "equipment": {
+          "realization": "dao/EquipmentMongo"
+        },
+        "location": {
+          "realization": "dao/LocationMongo"
+        },
+        "reservation": {
+          "realization": "dao/ReservationMongo"
+        }
+      }
+    }
+  }
+}

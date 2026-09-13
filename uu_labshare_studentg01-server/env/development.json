@@ -1,0 +1,16 @@
+{
+  "port": 8080,
+  "uuSubAppDataStoreMap": {
+    "primary": "mongodb://127.0.0.1:27017/labshareStudentPrimary"
+  },
+  "asid_license_owner_list": ["1065-1881-133-0000"],
+  "sysUuAppWorkspace": {
+    "awid": "22222222222222222222222222222222",
+    "awidLicenseOwnerList": ["1065-1881-133-0000"],
+    "name": "LabShare development workspace"
+  },
+  "asid": "11111111111111111111111111111111",
+  "log_level": "INFO",
+  "uu_app_oidc_providers_oidcg02_uri": "https://uuapp-dev.plus4u.net/uu-oidc-maing02/eca71064ecce44b0a25ce940eb8f053d/oidc",
+  "uu_app_objectstore_insert_oid": "all"
+}

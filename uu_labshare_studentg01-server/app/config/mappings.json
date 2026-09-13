@@ -1,0 +1,91 @@
+{
+  "{vendor}-{uuApp}-{uuSubApp}": {
+    "useCaseMap": {
+      "sys/uuAppWorkspace/init": {
+        "realization": "api/controllers/LabshareStudentController.init",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "sys/uuAppWorkspace/load": {
+        "realization": "api/controllers/LabshareStudentController.load",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "sys/uuAppWorkspace/loadAbout": {
+        "realization": "api/controllers/LabshareStudentController.loadAbout",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "sys/uuAppWorkspace/loadBasicData": {
+        "realization": "api/controllers/LabshareStudentController.loadBasicData",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "defaultUve": {
+        "realization": "index.html",
+        "httpMethod": "GET",
+        "type": "UVE"
+      },
+      "sys/uuAppWorkspace/initUve": {
+        "realization": "index.html",
+        "httpMethod": "GET",
+        "type": "UVE"
+      },
+      "sys/uuAppWorkspace/apiConsole": {
+        "realization": "api-console.html",
+        "httpMethod": "GET",
+        "type": "UVE"
+      },
+      "equipment/create": {
+        "realization": "api/controllers/LabshareStudentController.createEquipment",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "equipment/get": {
+        "realization": "api/controllers/LabshareStudentController.getEquipment",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "equipment/list": {
+        "realization": "api/controllers/LabshareStudentController.listEquipment",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "location/create": {
+        "realization": "api/controllers/LabshareStudentController.createLocation",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "location/get": {
+        "realization": "api/controllers/LabshareStudentController.getLocation",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "location/list": {
+        "realization": "api/controllers/LabshareStudentController.listLocations",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "location/update": {
+        "realization": "api/controllers/LabshareStudentController.updateLocation",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "location/delete": {
+        "realization": "api/controllers/LabshareStudentController.deleteLocation",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "equipment/update": {
+        "realization": "api/controllers/LabshareStudentController.updateEquipment",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "equipment/delete": {
+        "realization": "api/controllers/LabshareStudentController.deleteEquipment",
+        "httpMethod": "POST",
+        "type": "CMD"
+      }
+    }
+  }
+}
