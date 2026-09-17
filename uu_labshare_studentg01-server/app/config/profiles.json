@@ -73,6 +73,22 @@
       "equipment/delete": {
         "sysStateList": ["active", "restricted"],
         "profileList": ["Authorities", "AwidLicenseOwner"]
+      },
+      "reservation/create": {
+        "sysStateList": ["active", "restricted"],
+        "profileList": ["Readers", "Executives", "Authorities", "AwidLicenseOwner"]
+      },
+      "reservation/get": {
+        "sysStateList": ["active", "restricted", "readOnly"],
+        "profileList": ["Readers", "Executives", "Authorities", "AwidLicenseOwner"]
+      },
+      "reservation/list": {
+        "sysStateList": ["active", "restricted", "readOnly"],
+        "profileList": ["Readers", "Executives", "Authorities", "AwidLicenseOwner"]
+      },
+      "reservation/cancel": {
+        "sysStateList": ["active", "restricted"],
+        "profileList": ["Readers", "Executives", "Authorities", "AwidLicenseOwner"]
       }
     }
   }

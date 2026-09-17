@@ -2,6 +2,7 @@
 const WorkspaceAbl = require("../../abl/workspace-abl.js");
 const EquipmentAbl = require("../../abl/equipment-abl.js");
 const LocationAbl = require("../../abl/location-abl.js");
+const ReservationAbl = require("../../abl/reservation-abl.js");
 
 class LabshareStudentController {
   init(ucEnv) {
@@ -58,6 +59,22 @@ class LabshareStudentController {
 
   deleteLocation(ucEnv) {
     return LocationAbl.delete(ucEnv.getUri(), ucEnv.getDtoIn());
+  }
+
+  createReservation(ucEnv) {
+    return ReservationAbl.create(ucEnv.getUri(), ucEnv.getDtoIn(), ucEnv.getSession());
+  }
+
+  getReservation(ucEnv) {
+    return ReservationAbl.get(ucEnv.getUri(), ucEnv.getDtoIn());
+  }
+
+  listReservations(ucEnv) {
+    return ReservationAbl.list(ucEnv.getUri(), ucEnv.getDtoIn());
+  }
+
+  cancelReservation(ucEnv) {
+    return ReservationAbl.cancel(ucEnv.getUri(), ucEnv.getDtoIn());
   }
 }
 

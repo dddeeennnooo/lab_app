@@ -85,6 +85,26 @@
         "realization": "api/controllers/LabshareStudentController.deleteEquipment",
         "httpMethod": "POST",
         "type": "CMD"
+      },
+      "reservation/create": {
+        "realization": "api/controllers/LabshareStudentController.createReservation",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "reservation/get": {
+        "realization": "api/controllers/LabshareStudentController.getReservation",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "reservation/list": {
+        "realization": "api/controllers/LabshareStudentController.listReservations",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "reservation/cancel": {
+        "realization": "api/controllers/LabshareStudentController.cancelReservation",
+        "httpMethod": "POST",
+        "type": "CMD"
       }
     }
   }
