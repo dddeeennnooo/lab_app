@@ -9,6 +9,7 @@ const {
   assertValidInterval,
   hasOverlapWithBlockingReservations,
 } = require("./abl-utils.js");
+const { assertReservationOwnerOrPrivileged } = require("./abl-auth-utils.js");
 
 const CANCELLABLE_STATES = ["requested", "active"];
 
@@ -134,7 +135,7 @@ class ReservationAbl {
     };
   }
 
-  async cancel(uri, dtoIn) {
+  async cancel(uri, dtoIn, session, authorizationResult) {
     const awid = uri.getAwid();
 
     let validationResult = this.validator.validate("reservationCancelDtoInType", dtoIn);
@@ -153,6 +154,14 @@ class ReservationAbl {
     if (!CANCELLABLE_STATES.includes(reservation.state)) {
       throw new ReservationErrors.ReservationNotCancellable({ uuAppErrorMap }, { id: dtoIn.id, state: reservation.state });
     }
+
+    assertReservationOwnerOrPrivileged(
+      reservation,
+      session,
+      authorizationResult,
+      ReservationErrors.NotAuthorized,
+      uuAppErrorMap,
+    );
 
     const updated = await this.reservationDao.update({
       ...reservation,

@@ -26,6 +26,24 @@
       "accessCode2": "6YNV1u5G290-J!%83708141q51_!763n",
       "uuIdentity": "3039-912-8064-0000",
       "profileList": ["Authorities"]
+    },
+    "Executives": {
+      "accessCode1": "Y5&Cv$yt3rJx26u2P2&r03u9St@2!d5V",
+      "accessCode2": "6YNV1u5G290-J!%83708141q51_!763n",
+      "uuIdentity": "3039-912-8064-0001",
+      "profileList": ["Executives"]
+    },
+    "Readers": {
+      "accessCode1": "Y5&Cv$yt3rJx26u2P2&r03u9St@2!d5V",
+      "accessCode2": "6YNV1u5G290-J!%83708141q51_!763n",
+      "uuIdentity": "3039-912-8064-0002",
+      "profileList": ["Readers"]
+    },
+    "ReaderOther": {
+      "accessCode1": "Y5&Cv$yt3rJx26u2P2&r03u9St@2!d5V",
+      "accessCode2": "6YNV1u5G290-J!%83708141q51_!763n",
+      "uuIdentity": "3039-912-8064-0003",
+      "profileList": ["Readers"]
     }
   },
   "log_level": "FATAL",

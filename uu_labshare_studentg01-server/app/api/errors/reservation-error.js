@@ -43,6 +43,14 @@ const ReservationNotCancellable = class extends LabshareStudentUseCaseError {
   }
 };
 
+const NotAuthorized = class extends LabshareStudentUseCaseError {
+  constructor() {
+    super(...arguments);
+    this.code = `${UC_CODE}notAuthorized`;
+    this.message = "Not authorized for this reservation.";
+  }
+};
+
 module.exports = {
   UC_CODE,
   InvalidDtoIn,
@@ -50,4 +58,5 @@ module.exports = {
   EquipmentDoesNotExist,
   EquipmentNotAvailable,
   ReservationNotCancellable,
+  NotAuthorized,
 };

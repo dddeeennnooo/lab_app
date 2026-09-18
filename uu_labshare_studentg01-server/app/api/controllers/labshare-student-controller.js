@@ -74,7 +74,12 @@ class LabshareStudentController {
   }
 
   cancelReservation(ucEnv) {
-    return ReservationAbl.cancel(ucEnv.getUri(), ucEnv.getDtoIn());
+    return ReservationAbl.cancel(
+      ucEnv.getUri(),
+      ucEnv.getDtoIn(),
+      ucEnv.getSession(),
+      ucEnv.getAuthorizationResult(),
+    );
   }
 }
 

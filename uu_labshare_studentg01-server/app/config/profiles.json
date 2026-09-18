@@ -34,17 +34,25 @@
         "sysStateList": ["created", "assigned", "active", "restricted", "readOnly", "closed", "suspended"],
         "profileList": ["Authenticated"]
       },
-      "equipment/create": {
-        "sysStateList": ["active", "restricted"],
-        "profileList": ["Executives", "Authorities", "AwidLicenseOwner"]
+      "equipment/list": {
+        "sysStateList": ["active", "restricted", "readOnly"],
+        "profileList": ["Public", "Readers", "Executives", "Authorities", "AwidLicenseOwner"]
       },
       "equipment/get": {
         "sysStateList": ["active", "restricted", "readOnly"],
         "profileList": ["Readers", "Executives", "Authorities", "AwidLicenseOwner"]
       },
-      "equipment/list": {
-        "sysStateList": ["active", "restricted", "readOnly"],
-        "profileList": ["Public", "Readers", "Executives", "Authorities", "AwidLicenseOwner"]
+      "equipment/create": {
+        "sysStateList": ["active", "restricted"],
+        "profileList": ["Executives", "Authorities", "AwidLicenseOwner"]
+      },
+      "equipment/update": {
+        "sysStateList": ["active", "restricted"],
+        "profileList": ["Executives", "Authorities", "AwidLicenseOwner"]
+      },
+      "equipment/delete": {
+        "sysStateList": ["active", "restricted"],
+        "profileList": ["Authorities", "AwidLicenseOwner"]
       },
       "location/list": {
         "sysStateList": ["active", "restricted", "readOnly"],
@@ -52,7 +60,7 @@
       },
       "location/get": {
         "sysStateList": ["active", "restricted", "readOnly"],
-        "profileList": ["Public", "Readers", "Executives", "Authorities", "AwidLicenseOwner"]
+        "profileList": ["Readers", "Executives", "Authorities", "AwidLicenseOwner"]
       },
       "location/create": {
         "sysStateList": ["active", "restricted"],
@@ -63,14 +71,6 @@
         "profileList": ["Executives", "Authorities", "AwidLicenseOwner"]
       },
       "location/delete": {
-        "sysStateList": ["active", "restricted"],
-        "profileList": ["Authorities", "AwidLicenseOwner"]
-      },
-      "equipment/update": {
-        "sysStateList": ["active", "restricted"],
-        "profileList": ["Executives", "Authorities", "AwidLicenseOwner"]
-      },
-      "equipment/delete": {
         "sysStateList": ["active", "restricted"],
         "profileList": ["Authorities", "AwidLicenseOwner"]
       },
