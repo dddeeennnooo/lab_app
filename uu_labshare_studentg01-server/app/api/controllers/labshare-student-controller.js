@@ -1,8 +1,8 @@
 "use strict";
-const WorkspaceAbl = require("../../abl/workspace-abl.js");
-const EquipmentAbl = require("../../abl/equipment-abl.js");
-const LocationAbl = require("../../abl/location-abl.js");
-const ReservationAbl = require("../../abl/reservation-abl.js");
+const WorkspaceAbl = require("../../abl/workspace-abl/index.js");
+const EquipmentAbl = require("../../abl/equipment-abl/index.js");
+const LocationAbl = require("../../abl/location-abl/index.js");
+const ReservationAbl = require("../../abl/reservation-abl/index.js");
 
 class LabshareStudentController {
   init(ucEnv) {
