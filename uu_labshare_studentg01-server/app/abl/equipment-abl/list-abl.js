@@ -4,9 +4,7 @@ const { Validator } = require("uu_appg01_server").Validation;
 const { DaoFactory } = require("uu_appg01_server").ObjectStore;
 const { ValidationHelper } = require("uu_appg01_server").AppServer;
 const EquipmentErrors = require("../../api/errors/equipment-error.js");
-const normalizeName = require("../utils/normalize-name.js");
-const normalizePageInfo = require("../utils/normalize-page-info.js");
-const escapeRegex = require("../utils/escape-regex.js");
+const { normalizeName, normalizePageInfo, escapeRegex } = require("../utils/abl-utils.js");
 
 const UNSUPPORTED_KEYS_WARNING = `${EquipmentErrors.UC_CODE}list/unsupportedKeys`;
 
@@ -38,8 +36,7 @@ async function list(uri, dtoIn) {
   const sortOrder = dtoIn.order === "desc" ? -1 : 1;
   const sort = { [sortField]: sortOrder, id: 1 };
 
-  const listResult = await equipmentDao.listByFilter(filter, pageInfo, sort);
-  const itemList = Array.isArray(listResult) ? listResult : listResult.itemList;
+  const itemList = await equipmentDao.listByFilter(filter, pageInfo, sort);
   const total = await equipmentDao.countByFilter(filter);
 
   return {

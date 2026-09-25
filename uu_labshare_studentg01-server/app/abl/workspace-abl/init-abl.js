@@ -8,7 +8,7 @@ const { UriBuilder } = require("uu_appg01_server").Uri;
 const { LoggerFactory } = require("uu_appg01_server").Logging;
 const { AppClient } = require("uu_appg01_server");
 const Errors = require("../../api/errors/labshare-student-error.js");
-const timeToMinutes = require("../utils/time-to-minutes.js");
+const { timeToMinutes } = require("../utils/abl-utils.js");
 const { INIT_SCHEMAS, WARNINGS } = require("./workspace-constants.js");
 const setProfile = require("./set-profile.js");
 

@@ -4,8 +4,7 @@ const { Validator } = require("uu_appg01_server").Validation;
 const { DaoFactory } = require("uu_appg01_server").ObjectStore;
 const { ValidationHelper } = require("uu_appg01_server").AppServer;
 const ReservationErrors = require("../../api/errors/reservation-error.js");
-const normalizePageInfo = require("../utils/normalize-page-info.js");
-const unwrapList = require("../utils/unwrap-list.js");
+const { normalizePageInfo } = require("../utils/abl-utils.js");
 
 const UNSUPPORTED_KEYS_WARNING = `${ReservationErrors.UC_CODE}list/unsupportedKeys`;
 
@@ -33,8 +32,7 @@ async function list(uri, dtoIn) {
   }
 
   const sort = { "interval.start": 1, id: 1 };
-  const listResult = await reservationDao.listByFilter(filter, pageInfo, sort);
-  const itemList = unwrapList(listResult);
+  const itemList = await reservationDao.listByFilter(filter, pageInfo, sort);
   const total = await reservationDao.countByFilter(filter);
 
   return {

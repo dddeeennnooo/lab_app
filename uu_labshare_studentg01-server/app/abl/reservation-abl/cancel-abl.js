@@ -4,7 +4,7 @@ const { Validator } = require("uu_appg01_server").Validation;
 const { DaoFactory } = require("uu_appg01_server").ObjectStore;
 const { ValidationHelper } = require("uu_appg01_server").AppServer;
 const ReservationErrors = require("../../api/errors/reservation-error.js");
-const assertReservationOwnerOrPrivileged = require("../utils/assert-reservation-owner-or-privileged.js");
+const { assertReservationOwnerOrPrivileged } = require("../utils/abl-utils.js");
 
 const CANCELLABLE_STATES = ["requested", "active"];
 const UNSUPPORTED_KEYS_WARNING = `${ReservationErrors.UC_CODE}cancel/unsupportedKeys`;

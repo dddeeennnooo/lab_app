@@ -4,7 +4,7 @@ const { Validator } = require("uu_appg01_server").Validation;
 const { DaoFactory } = require("uu_appg01_server").ObjectStore;
 const { ValidationHelper } = require("uu_appg01_server").AppServer;
 const LocationErrors = require("../../api/errors/location-error.js");
-const normalizePageInfo = require("../utils/normalize-page-info.js");
+const { normalizePageInfo } = require("../utils/abl-utils.js");
 
 const UNSUPPORTED_KEYS_WARNING = `${LocationErrors.UC_CODE}list/unsupportedKeys`;
 
@@ -22,8 +22,7 @@ async function list(uri, dtoIn) {
   );
 
   const pageInfo = normalizePageInfo(dtoIn.pageInfo);
-  const listResult = await locationDao.list(awid, pageInfo, { name: 1, id: 1 });
-  const itemList = Array.isArray(listResult) ? listResult : listResult.itemList;
+  const itemList = await locationDao.list(awid, pageInfo, { name: 1, id: 1 });
   const total = await locationDao.count(awid);
 
   return {

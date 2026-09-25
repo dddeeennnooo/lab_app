@@ -1,9 +1,11 @@
 "use strict";
 const { UuObjectDao } = require("uu_appg01_server").ObjectStore;
+const { toItemList, dropLegacyAwidIdIndex } = require("./dao-utils.js");
 
 class LocationMongo extends UuObjectDao {
   async createSchema() {
-    await super.createIndex({ awid: 1, id: 1 }, { unique: true });
+    await dropLegacyAwidIdIndex(this);
+    await super.createIndex({ awid: 1, _id: 1 }, { unique: true });
     await super.createIndex({ awid: 1, normalizedName: 1 }, { unique: true });
   }
 
@@ -20,7 +22,7 @@ class LocationMongo extends UuObjectDao {
   }
 
   async list(awid, pageInfo, sort = { name: 1, id: 1 }) {
-    return await super.find({ awid }, pageInfo, sort);
+    return toItemList(await super.find({ awid }, pageInfo, sort));
   }
 
   async count(awid) {

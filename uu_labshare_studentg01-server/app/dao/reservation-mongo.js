@@ -1,9 +1,11 @@
 "use strict";
 const { UuObjectDao } = require("uu_appg01_server").ObjectStore;
+const { toItemList, dropLegacyAwidIdIndex } = require("./dao-utils.js");
 
 class ReservationMongo extends UuObjectDao {
   async createSchema() {
-    await super.createIndex({ awid: 1, id: 1 }, { unique: true });
+    await dropLegacyAwidIdIndex(this);
+    await super.createIndex({ awid: 1, _id: 1 }, { unique: true });
     await super.createIndex({ awid: 1, equipmentId: 1, state: 1 });
   }
 
@@ -16,7 +18,7 @@ class ReservationMongo extends UuObjectDao {
   }
 
   async listByFilter(filter, pageInfo, sort) {
-    return await super.find(filter, pageInfo, sort);
+    return toItemList(await super.find(filter, pageInfo, sort));
   }
 
   async countByFilter(filter) {
@@ -24,7 +26,9 @@ class ReservationMongo extends UuObjectDao {
   }
 
   async listBlockingByEquipmentId(awid, equipmentId) {
-    return await super.find({ awid, equipmentId, state: { $in: ["requested", "active"] } });
+    return toItemList(
+      await super.find({ awid, equipmentId, state: { $in: ["requested", "active"] } }),
+    );
   }
 
   async countActiveByEquipmentId(awid, equipmentId) {
