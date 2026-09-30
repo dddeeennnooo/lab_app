@@ -6,4 +6,5 @@ module.exports = {
   list: require("./list-abl.js"),
   update: require("./update-abl.js"),
   delete: require("./delete-abl.js"),
+  suggest: require("./suggest-abl.js"),
 };

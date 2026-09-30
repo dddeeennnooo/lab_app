@@ -37,11 +37,19 @@ async function update(uri, dtoIn) {
     throw new LocationErrors.LocationAlreadyExists({ uuAppErrorMap }, { name });
   }
 
-  const updated = await locationDao.update({
+  const next = {
     ...location,
     name,
     normalizedName,
-  });
+  };
+  if (dtoIn.mapX !== undefined) {
+    next.mapX = dtoIn.mapX;
+  }
+  if (dtoIn.mapY !== undefined) {
+    next.mapY = dtoIn.mapY;
+  }
+
+  const updated = await locationDao.update(next);
 
   return { ...updated, uuAppErrorMap };
 }

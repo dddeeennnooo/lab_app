@@ -2,6 +2,8 @@
 
 const locationCreateDtoInType = shape({
   name: string(255).isRequired(),
+  mapX: number(),
+  mapY: number(),
 });
 
 const locationGetDtoInType = shape({
@@ -18,6 +20,8 @@ const locationListDtoInType = shape({
 const locationUpdateDtoInType = shape({
   id: string(255).isRequired(),
   name: string(255).isRequired(),
+  mapX: number(),
+  mapY: number(),
 });
 
 const locationDeleteDtoInType = shape({

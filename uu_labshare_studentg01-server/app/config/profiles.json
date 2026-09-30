@@ -89,6 +89,18 @@
       "reservation/cancel": {
         "sysStateList": ["active", "restricted"],
         "profileList": ["Readers", "Executives", "Authorities", "AwidLicenseOwner"]
+      },
+      "reservation/createSession": {
+        "sysStateList": ["active", "restricted"],
+        "profileList": ["Readers", "Executives", "Authorities", "AwidLicenseOwner"]
+      },
+      "equipment/suggest": {
+        "sysStateList": ["active", "restricted", "readOnly"],
+        "profileList": ["Readers", "Executives", "Authorities", "AwidLicenseOwner"]
+      },
+      "waitlist/list": {
+        "sysStateList": ["active", "restricted", "readOnly"],
+        "profileList": ["Readers", "Executives", "Authorities", "AwidLicenseOwner"]
       }
     }
   }

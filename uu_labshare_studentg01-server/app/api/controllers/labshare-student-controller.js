@@ -3,6 +3,7 @@ const WorkspaceAbl = require("../../abl/workspace-abl/index.js");
 const EquipmentAbl = require("../../abl/equipment-abl/index.js");
 const LocationAbl = require("../../abl/location-abl/index.js");
 const ReservationAbl = require("../../abl/reservation-abl/index.js");
+const WaitlistAbl = require("../../abl/waitlist-abl/index.js");
 
 class LabshareStudentController {
   init(ucEnv) {
@@ -39,6 +40,10 @@ class LabshareStudentController {
 
   deleteEquipment(ucEnv) {
     return EquipmentAbl.delete(ucEnv.getUri(), ucEnv.getDtoIn());
+  }
+
+  suggestEquipment(ucEnv) {
+    return EquipmentAbl.suggest(ucEnv.getUri(), ucEnv.getDtoIn());
   }
 
   createLocation(ucEnv) {
@@ -80,6 +85,14 @@ class LabshareStudentController {
       ucEnv.getSession(),
       ucEnv.getAuthorizationResult(),
     );
+  }
+
+  createReservationSession(ucEnv) {
+    return ReservationAbl.createSession(ucEnv.getUri(), ucEnv.getDtoIn(), ucEnv.getSession());
+  }
+
+  listWaitlist(ucEnv) {
+    return WaitlistAbl.list(ucEnv.getUri(), ucEnv.getDtoIn());
   }
 }
 

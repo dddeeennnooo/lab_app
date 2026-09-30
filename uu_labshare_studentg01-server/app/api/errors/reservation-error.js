@@ -51,6 +51,22 @@ const NotAuthorized = class extends LabshareStudentUseCaseError {
   }
 };
 
+const InvalidRequirement = class extends LabshareStudentUseCaseError {
+  constructor() {
+    super(...arguments);
+    this.code = `${UC_CODE}invalidRequirement`;
+    this.message = "Each requirement must specify equipmentId or equipmentType.";
+  }
+};
+
+const SessionCannotBeSatisfied = class extends LabshareStudentUseCaseError {
+  constructor() {
+    super(...arguments);
+    this.code = `${UC_CODE}sessionCannotBeSatisfied`;
+    this.message = "No assignment of free equipment satisfies the session requirements.";
+  }
+};
+
 module.exports = {
   UC_CODE,
   InvalidDtoIn,
@@ -59,4 +75,6 @@ module.exports = {
   EquipmentNotAvailable,
   ReservationNotCancellable,
   NotAuthorized,
+  InvalidRequirement,
+  SessionCannotBeSatisfied,
 };

@@ -105,6 +105,21 @@
         "realization": "api/controllers/LabshareStudentController.cancelReservation",
         "httpMethod": "POST",
         "type": "CMD"
+      },
+      "reservation/createSession": {
+        "realization": "api/controllers/LabshareStudentController.createReservationSession",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "equipment/suggest": {
+        "realization": "api/controllers/LabshareStudentController.suggestEquipment",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "waitlist/list": {
+        "realization": "api/controllers/LabshareStudentController.listWaitlist",
+        "httpMethod": "GET",
+        "type": "CMD"
       }
     }
   }

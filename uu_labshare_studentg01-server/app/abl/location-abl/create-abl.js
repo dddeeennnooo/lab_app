@@ -4,7 +4,7 @@ const { Validator } = require("uu_appg01_server").Validation;
 const { DaoFactory } = require("uu_appg01_server").ObjectStore;
 const { ValidationHelper } = require("uu_appg01_server").AppServer;
 const LocationErrors = require("../../api/errors/location-error.js");
-const { normalizeName, generateId } = require("../utils/abl-utils.js");
+const { normalizeName } = require("../utils/abl-utils.js");
 
 const UNSUPPORTED_KEYS_WARNING = `${LocationErrors.UC_CODE}create/unsupportedKeys`;
 
@@ -33,9 +33,10 @@ async function create(uri, dtoIn) {
 
   const location = await locationDao.create({
     awid,
-    id: generateId("location-"),
     name,
     normalizedName,
+    mapX: Number.isFinite(dtoIn.mapX) ? dtoIn.mapX : 0,
+    mapY: Number.isFinite(dtoIn.mapY) ? dtoIn.mapY : 0,
   });
 
   return { ...location, uuAppErrorMap };

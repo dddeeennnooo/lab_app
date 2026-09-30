@@ -16,6 +16,9 @@
         },
         "reservation": {
           "realization": "dao/ReservationMongo"
+        },
+        "waitlistEntry": {
+          "realization": "dao/WaitlistEntryMongo"
         }
       }
     }

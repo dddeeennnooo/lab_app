@@ -6,6 +6,22 @@ const reservationCreateDtoInType = shape({
     start: datetime().isRequired(),
     end: datetime().isRequired(),
   }).isRequired(),
+  enqueueIfBusy: boolean(),
+});
+
+const reservationCreateSessionDtoInType = shape({
+  interval: shape({
+    start: datetime().isRequired(),
+    end: datetime().isRequired(),
+  }).isRequired(),
+  requirementList: array(
+    shape({
+      equipmentId: string(255),
+      equipmentType: string(255),
+    }).isRequired(),
+    1,
+    50,
+  ).isRequired(),
 });
 
 const reservationGetDtoInType = shape({

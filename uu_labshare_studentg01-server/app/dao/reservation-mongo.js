@@ -38,6 +38,20 @@ class ReservationMongo extends UuObjectDao {
   async update(uuObject) {
     return await super.findOneAndUpdate({ awid: uuObject.awid, id: uuObject.id }, uuObject, "NONE");
   }
+
+  async remove(uuObject) {
+    return await super.deleteOne({ awid: uuObject.awid, id: uuObject.id });
+  }
+
+  async listByUuIdentity(awid, uuIdentity) {
+    return toItemList(await super.find({ awid, uuIdentity }, { pageIndex: 0, pageSize: 10000 }));
+  }
+
+  async listReturnedByEquipmentId(awid, equipmentId) {
+    return toItemList(
+      await super.find({ awid, equipmentId, state: "returned" }, { pageIndex: 0, pageSize: 10000 }),
+    );
+  }
 }
 
 module.exports = ReservationMongo;

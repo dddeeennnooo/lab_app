@@ -47,7 +47,15 @@ async function cancel(uri, dtoIn, session, authorizationResult) {
     state: "cancelled",
   });
 
-  return { ...updated, uuAppErrorMap };
+  const promoteWaitlistAfterCancel = require("../utils/promote-waitlist-after-cancel.js");
+  const promotion = await promoteWaitlistAfterCancel(awid, reservation.equipmentId);
+
+  const dtoOut = { ...updated, uuAppErrorMap };
+  if (promotion) {
+    dtoOut.promotedWaitlistEntry = promotion.waitlistEntry;
+    dtoOut.promotedReservation = promotion.reservation;
+  }
+  return dtoOut;
 }
 
 module.exports = cancel;

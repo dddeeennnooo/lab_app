@@ -25,6 +25,10 @@ class EquipmentMongo extends UuObjectDao {
     return toItemList(await super.find(filter, pageInfo, sort));
   }
 
+  async listAllByAwid(awid) {
+    return toItemList(await super.find({ awid }, { pageIndex: 0, pageSize: 10000 }));
+  }
+
   async countByFilter(filter) {
     return await super.count(filter);
   }

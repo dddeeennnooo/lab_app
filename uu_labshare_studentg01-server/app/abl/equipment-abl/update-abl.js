@@ -36,6 +36,17 @@ async function update(uri, dtoIn) {
     next.locationId = dtoIn.locationId;
   }
 
+  if (dtoIn.equipmentType !== undefined) {
+    next.equipmentType = String(dtoIn.equipmentType).trim() || "default";
+  }
+
+  if (dtoIn.compatibleIdList !== undefined) {
+    const compatibleIdList = [...new Set(dtoIn.compatibleIdList)];
+    const assertCompatible = require("./assert-compatible-equipment.js");
+    await assertCompatible(awid, dtoIn.id, compatibleIdList, equipmentDao, uuAppErrorMap);
+    next.compatibleIdList = compatibleIdList;
+  }
+
   if (dtoIn.name !== undefined) {
     const name = normalizeName(dtoIn.name);
     if (!name) {

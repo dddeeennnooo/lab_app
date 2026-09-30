@@ -3,6 +3,16 @@
 const equipmentCreateDtoInType = shape({
   name: string(255).isRequired(),
   locationId: string(255).isRequired(),
+  equipmentType: string(255),
+  compatibleIdList: array(string(255), 0, 100),
+});
+
+const equipmentSuggestDtoInType = shape({
+  equipmentId: string(255).isRequired(),
+  interval: shape({
+    start: datetime().isRequired(),
+    end: datetime().isRequired(),
+  }).isRequired(),
 });
 
 const equipmentGetDtoInType = shape({
@@ -24,6 +34,8 @@ const equipmentUpdateDtoInType = shape({
   id: string(255).isRequired(),
   name: string(255),
   locationId: string(255),
+  equipmentType: string(255),
+  compatibleIdList: array(string(255), 0, 100),
 });
 
 const equipmentDeleteDtoInType = shape({

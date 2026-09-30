@@ -4,7 +4,7 @@ const { Validator } = require("uu_appg01_server").Validation;
 const { DaoFactory } = require("uu_appg01_server").ObjectStore;
 const { ValidationHelper } = require("uu_appg01_server").AppServer;
 const ReservationErrors = require("../../api/errors/reservation-error.js");
-const { generateId, assertValidInterval, hasOverlapWithBlockingReservations } = require("../utils/abl-utils.js");
+const { assertValidInterval, hasOverlapWithBlockingReservations } = require("../utils/abl-utils.js");
 
 const UNSUPPORTED_KEYS_WARNING = `${ReservationErrors.UC_CODE}create/unsupportedKeys`;
 
@@ -33,13 +33,28 @@ async function create(uri, dtoIn, session) {
 
   const blockingList = await reservationDao.listBlockingByEquipmentId(awid, dtoIn.equipmentId);
   if (hasOverlapWithBlockingReservations(blockingList, intervalBounds.startMs, intervalBounds.endMs)) {
+    if (dtoIn.enqueueIfBusy === true) {
+      const waitlistDao = DaoFactory.getDao("waitlistEntry");
+      const uuIdentity = session.getIdentity().getUuIdentity();
+      const waitlistEntry = await waitlistDao.create({
+        awid,
+        equipmentId: dtoIn.equipmentId,
+        interval: {
+          start: new Date(dtoIn.interval.start).toISOString(),
+          end: new Date(dtoIn.interval.end).toISOString(),
+        },
+        state: "waiting",
+        uuIdentity,
+        enqueuedAt: new Date().toISOString(),
+      });
+      return { waitlistEntry, uuAppErrorMap };
+    }
     throw new ReservationErrors.EquipmentNotAvailable({ uuAppErrorMap }, { equipmentId: dtoIn.equipmentId });
   }
 
   const uuIdentity = session.getIdentity().getUuIdentity();
   const reservation = await reservationDao.create({
     awid,
-    id: generateId("reservation-"),
     equipmentId: dtoIn.equipmentId,
     interval: {
       start: new Date(dtoIn.interval.start).toISOString(),

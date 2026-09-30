@@ -43,6 +43,14 @@ const EquipmentHasActiveReservation = class extends LabshareStudentUseCaseError 
   }
 };
 
+const CompatibleEquipmentDoesNotExist = class extends LabshareStudentUseCaseError {
+  constructor() {
+    super(...arguments);
+    this.code = `${UC_CODE}compatibleEquipmentDoesNotExist`;
+    this.message = "Compatible equipment does not exist.";
+  }
+};
+
 module.exports = {
   UC_CODE,
   InvalidDtoIn,
@@ -50,4 +58,5 @@ module.exports = {
   EquipmentNameAlreadyExists,
   LocationDoesNotExist,
   EquipmentHasActiveReservation,
+  CompatibleEquipmentDoesNotExist,
 };

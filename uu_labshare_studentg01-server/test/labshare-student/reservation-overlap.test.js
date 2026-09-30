@@ -85,7 +85,7 @@ describe("T7 reservation overlap", () => {
   test("equipment/delete blocked while active reservation exists", async () => {
     const created = await TestHelper.executePostCommand(
       "reservation/create",
-      { equipmentId, interval: interval(40, 42) },
+      { equipmentId, interval: interval(4, 6) },
       session,
     );
     const { uuAppErrorMap, ...reservation } = created.data;
