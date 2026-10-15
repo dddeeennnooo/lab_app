@@ -1,6 +1,6 @@
 "use strict";
 const { UuObjectDao } = require("uu_appg01_server").ObjectStore;
-const { toItemList, dropLegacyAwidIdIndex } = require("./dao-utils.js");
+const { toItemList, withBusinessId, withBusinessIdList, dropLegacyAwidIdIndex } = require("./dao-utils.js");
 
 class EquipmentMongo extends UuObjectDao {
   async createSchema() {
@@ -11,11 +11,11 @@ class EquipmentMongo extends UuObjectDao {
   }
 
   async create(uuObject) {
-    return await super.insertOne(uuObject);
+    return withBusinessId(await super.insertOne(uuObject));
   }
 
   async get(awid, id) {
-    return await super.findOne({ awid, id });
+    return withBusinessId(await super.findOne({ awid, id }));
   }
 
   async getByNormalizedName(awid, normalizedName) {
@@ -26,7 +26,7 @@ class EquipmentMongo extends UuObjectDao {
   }
 
   async listAllByAwid(awid) {
-    return toItemList(await super.find({ awid }, { pageIndex: 0, pageSize: 10000 }));
+    return withBusinessIdList(toItemList(await super.find({ awid }, { pageIndex: 0, pageSize: 10000 })));
   }
 
   async countByFilter(filter) {

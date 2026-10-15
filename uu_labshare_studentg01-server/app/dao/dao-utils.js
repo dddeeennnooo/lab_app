@@ -4,6 +4,24 @@ function toItemList(findResult) {
   return Array.isArray(findResult) ? findResult : findResult.itemList;
 }
 
+/** ObjectStore may expose business id as `id` or only as `_id` depending on load path. */
+function withBusinessId(uuObject) {
+  if (!uuObject) {
+    return uuObject;
+  }
+  if (uuObject.id != null) {
+    return { ...uuObject, id: String(uuObject.id) };
+  }
+  if (uuObject._id != null) {
+    return { ...uuObject, id: String(uuObject._id) };
+  }
+  return uuObject;
+}
+
+function withBusinessIdList(itemList) {
+  return (itemList || []).map((item) => withBusinessId(item));
+}
+
 /** ObjectStore stores business id in _id; legacy schemas indexed missing field `id`. */
 async function dropLegacyAwidIdIndex(dao) {
   try {
@@ -13,4 +31,4 @@ async function dropLegacyAwidIdIndex(dao) {
   }
 }
 
-module.exports = { toItemList, dropLegacyAwidIdIndex };
+module.exports = { toItemList, withBusinessId, withBusinessIdList, dropLegacyAwidIdIndex };
