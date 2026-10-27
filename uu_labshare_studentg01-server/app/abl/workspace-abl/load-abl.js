@@ -2,10 +2,12 @@
 
 const { UuAppWorkspace } = require("uu_appg01_server").Workspace;
 const attachLab = require("./attach-lab.js");
+const { attachPlus4u5LocalNavigation } = require("./plus4u5-local-navigation.js");
 
 async function load(uri, session, uuAppErrorMap = {}) {
   const dtoOut = await UuAppWorkspace.load(uri, session, uuAppErrorMap);
-  return await attachLab(dtoOut, uri.getAwid());
+  await attachLab(dtoOut, uri.getAwid());
+  return attachPlus4u5LocalNavigation(dtoOut, uri.getBaseUri());
 }
 
 module.exports = load;

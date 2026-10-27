@@ -22,6 +22,18 @@
   },
   "Menu": {
     "home": "Welcome",
+    "locationList": "Locations",
+    "equipmentList": "Equipment",
+    "reservationList": "Reservations",
     "about": "About Application"
+  },
+  "UuLabshareStudent.Routes.LocationList": {
+    "title": "Locations"
+  },
+  "UuLabshareStudent.Routes.EquipmentList": {
+    "title": "Equipment"
+  },
+  "UuLabshareStudent.Routes.ReservationList": {
+    "title": "Reservations"
   }
 }

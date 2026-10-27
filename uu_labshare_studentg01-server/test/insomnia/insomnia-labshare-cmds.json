@@ -1,0 +1,569 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2026-09-18T06:36:29.265Z",
+  "__export_source": "uuLabShare training",
+  "resources": [
+    {
+      "_id": "wrk_labshare_insomnia_cmds_01",
+      "created": 1789713389265,
+      "modified": 1789713389265,
+      "name": "uuLabShare app CMDs",
+      "parentId": null,
+      "scope": "collection",
+      "_type": "workspace"
+    },
+    {
+      "_id": "env_labshare_insomnia_base_01",
+      "color": null,
+      "created": 1789713389265,
+      "data": {
+        "contextPath": "uu-labshare-studentg01",
+        "token": ""
+      },
+      "dataPropertyOrder": {
+        "&": [
+          "contextPath",
+          "token"
+        ]
+      },
+      "isPrivate": false,
+      "metaSortKey": 1,
+      "modified": 1789713389265,
+      "name": "Base Environment",
+      "parentId": "wrk_labshare_insomnia_cmds_01",
+      "_type": "environment"
+    },
+    {
+      "_id": "env_labshare_insomnia_localhost_01",
+      "color": "#7d69cb",
+      "created": 1789713389265,
+      "data": {
+        "host": "http://localhost:8080",
+        "contextPath": "uu-labshare-studentg01",
+        "asid": "11111111111111111111111111111111",
+        "awid": "22222222222222222222222222222222",
+        "token": "",
+        "locationId": "",
+        "equipmentId": "",
+        "reservationId": ""
+      },
+      "dataPropertyOrder": {
+        "&": [
+          "host",
+          "contextPath",
+          "asid",
+          "awid",
+          "token",
+          "locationId",
+          "equipmentId",
+          "reservationId"
+        ]
+      },
+      "isPrivate": false,
+      "metaSortKey": 2,
+      "modified": 1789713389265,
+      "name": "localhost",
+      "parentId": "env_labshare_insomnia_base_01",
+      "_type": "environment"
+    },
+    {
+      "_id": "fld_labshare_location_cmds",
+      "created": 1789713389265,
+      "description": "uuLabShare app CMDs (T3–T8). Import this JSON file in Insomnia.",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": 100,
+      "modified": 1789713389265,
+      "name": "location (T5)",
+      "parentId": "wrk_labshare_insomnia_cmds_01",
+      "_type": "request_group"
+    },
+    {
+      "_id": "fld_labshare_equipment_cmds",
+      "created": 1789713389265,
+      "description": "uuLabShare app CMDs (T3–T8). Import this JSON file in Insomnia.",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": 200,
+      "modified": 1789713389265,
+      "name": "equipment (T3–T5)",
+      "parentId": "wrk_labshare_insomnia_cmds_01",
+      "_type": "request_group"
+    },
+    {
+      "_id": "fld_labshare_reservation_cmds",
+      "created": 1789713389265,
+      "description": "uuLabShare app CMDs (T3–T8). Import this JSON file in Insomnia.",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": 300,
+      "modified": 1789713389265,
+      "name": "reservation (T7–T8)",
+      "parentId": "wrk_labshare_insomnia_cmds_01",
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_labshare_loc_create",
+      "authentication": {
+        "token": "{{ token }}",
+        "type": "bearer"
+      },
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"name\": \"Room A\"\n}"
+      },
+      "created": 1789713389265,
+      "description": "Copy response id to environment locationId.",
+      "headers": [
+        {
+          "id": "pair_req_labshare_loc_create",
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": 10,
+      "method": "POST",
+      "modified": 1789713389265,
+      "name": "location/create",
+      "parameters": [],
+      "parentId": "fld_labshare_location_cmds",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ host }}/{{ contextPath }}/{{ awid }}/location/create",
+      "_type": "request"
+    },
+    {
+      "_id": "req_labshare_loc_get",
+      "authentication": {
+        "token": "{{ token }}",
+        "type": "bearer"
+      },
+      "body": {},
+      "created": 1789713389265,
+      "description": "",
+      "headers": [],
+      "isPrivate": false,
+      "metaSortKey": 20,
+      "method": "GET",
+      "modified": 1789713389265,
+      "name": "location/get",
+      "parameters": [],
+      "parentId": "fld_labshare_location_cmds",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ host }}/{{ contextPath }}/{{ awid }}/location/get?id={{ locationId }}",
+      "_type": "request"
+    },
+    {
+      "_id": "req_labshare_loc_list",
+      "authentication": {
+        "token": "{{ token }}",
+        "type": "bearer"
+      },
+      "body": {},
+      "created": 1789713389265,
+      "description": "Public: disable Bearer auth to test without login.",
+      "headers": [],
+      "isPrivate": false,
+      "metaSortKey": 30,
+      "method": "GET",
+      "modified": 1789713389265,
+      "name": "location/list",
+      "parameters": [],
+      "parentId": "fld_labshare_location_cmds",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ host }}/{{ contextPath }}/{{ awid }}/location/list?pageIndex=0&pageSize=20",
+      "_type": "request"
+    },
+    {
+      "_id": "req_labshare_loc_update",
+      "authentication": {
+        "token": "{{ token }}",
+        "type": "bearer"
+      },
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"id\": \"{{ locationId }}\",\n  \"name\": \"Room A renamed\"\n}"
+      },
+      "created": 1789713389265,
+      "description": "",
+      "headers": [
+        {
+          "id": "pair_req_labshare_loc_update",
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": 40,
+      "method": "POST",
+      "modified": 1789713389265,
+      "name": "location/update",
+      "parameters": [],
+      "parentId": "fld_labshare_location_cmds",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ host }}/{{ contextPath }}/{{ awid }}/location/update",
+      "_type": "request"
+    },
+    {
+      "_id": "req_labshare_loc_delete",
+      "authentication": {
+        "token": "{{ token }}",
+        "type": "bearer"
+      },
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"id\": \"{{ locationId }}\"\n}"
+      },
+      "created": 1789713389265,
+      "description": "",
+      "headers": [
+        {
+          "id": "pair_req_labshare_loc_delete",
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": 50,
+      "method": "POST",
+      "modified": 1789713389265,
+      "name": "location/delete",
+      "parameters": [],
+      "parentId": "fld_labshare_location_cmds",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ host }}/{{ contextPath }}/{{ awid }}/location/delete",
+      "_type": "request"
+    },
+    {
+      "_id": "req_labshare_eq_create",
+      "authentication": {
+        "token": "{{ token }}",
+        "type": "bearer"
+      },
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"name\": \"Microscope\",\n  \"locationId\": \"{{ locationId }}\"\n}"
+      },
+      "created": 1789713389265,
+      "description": "",
+      "headers": [
+        {
+          "id": "pair_req_labshare_eq_create",
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": 10,
+      "method": "POST",
+      "modified": 1789713389265,
+      "name": "equipment/create",
+      "parameters": [],
+      "parentId": "fld_labshare_equipment_cmds",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ host }}/{{ contextPath }}/{{ awid }}/equipment/create",
+      "_type": "request"
+    },
+    {
+      "_id": "req_labshare_eq_get",
+      "authentication": {
+        "token": "{{ token }}",
+        "type": "bearer"
+      },
+      "body": {},
+      "created": 1789713389265,
+      "description": "",
+      "headers": [],
+      "isPrivate": false,
+      "metaSortKey": 20,
+      "method": "GET",
+      "modified": 1789713389265,
+      "name": "equipment/get",
+      "parameters": [],
+      "parentId": "fld_labshare_equipment_cmds",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ host }}/{{ contextPath }}/{{ awid }}/equipment/get?id={{ equipmentId }}",
+      "_type": "request"
+    },
+    {
+      "_id": "req_labshare_eq_list",
+      "authentication": {
+        "token": "{{ token }}",
+        "type": "bearer"
+      },
+      "body": {},
+      "created": 1789713389265,
+      "description": "Public: disable Bearer auth to test without login.",
+      "headers": [],
+      "isPrivate": false,
+      "metaSortKey": 30,
+      "method": "GET",
+      "modified": 1789713389265,
+      "name": "equipment/list",
+      "parameters": [],
+      "parentId": "fld_labshare_equipment_cmds",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ host }}/{{ contextPath }}/{{ awid }}/equipment/list?pageIndex=0&pageSize=20",
+      "_type": "request"
+    },
+    {
+      "_id": "req_labshare_eq_list_filter",
+      "authentication": {
+        "token": "{{ token }}",
+        "type": "bearer"
+      },
+      "body": {},
+      "created": 1789713389265,
+      "description": "",
+      "headers": [],
+      "isPrivate": false,
+      "metaSortKey": 35,
+      "method": "GET",
+      "modified": 1789713389265,
+      "name": "equipment/list (name + location)",
+      "parameters": [],
+      "parentId": "fld_labshare_equipment_cmds",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ host }}/{{ contextPath }}/{{ awid }}/equipment/list?name=Micro&locationId={{ locationId }}&sortBy=name&order=asc&pageIndex=0&pageSize=20",
+      "_type": "request"
+    },
+    {
+      "_id": "req_labshare_eq_update",
+      "authentication": {
+        "token": "{{ token }}",
+        "type": "bearer"
+      },
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"id\": \"{{ equipmentId }}\",\n  \"name\": \"Microscope Pro\"\n}"
+      },
+      "created": 1789713389265,
+      "description": "",
+      "headers": [
+        {
+          "id": "pair_req_labshare_eq_update",
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": 40,
+      "method": "POST",
+      "modified": 1789713389265,
+      "name": "equipment/update",
+      "parameters": [],
+      "parentId": "fld_labshare_equipment_cmds",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ host }}/{{ contextPath }}/{{ awid }}/equipment/update",
+      "_type": "request"
+    },
+    {
+      "_id": "req_labshare_eq_delete",
+      "authentication": {
+        "token": "{{ token }}",
+        "type": "bearer"
+      },
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"id\": \"{{ equipmentId }}\"\n}"
+      },
+      "created": 1789713389265,
+      "description": "",
+      "headers": [
+        {
+          "id": "pair_req_labshare_eq_delete",
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": 50,
+      "method": "POST",
+      "modified": 1789713389265,
+      "name": "equipment/delete",
+      "parameters": [],
+      "parentId": "fld_labshare_equipment_cmds",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ host }}/{{ contextPath }}/{{ awid }}/equipment/delete",
+      "_type": "request"
+    },
+    {
+      "_id": "req_labshare_res_create",
+      "authentication": {
+        "token": "{{ token }}",
+        "type": "bearer"
+      },
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"equipmentId\": \"{{ equipmentId }}\",\n  \"interval\": {\n    \"start\": \"2026-08-01T10:00:00.000Z\",\n    \"end\": \"2026-08-01T12:00:00.000Z\"\n  }\n}"
+      },
+      "created": 1789713389265,
+      "description": "",
+      "headers": [
+        {
+          "id": "pair_req_labshare_res_create",
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": 10,
+      "method": "POST",
+      "modified": 1789713389265,
+      "name": "reservation/create",
+      "parameters": [],
+      "parentId": "fld_labshare_reservation_cmds",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ host }}/{{ contextPath }}/{{ awid }}/reservation/create",
+      "_type": "request"
+    },
+    {
+      "_id": "req_labshare_res_get",
+      "authentication": {
+        "token": "{{ token }}",
+        "type": "bearer"
+      },
+      "body": {},
+      "created": 1789713389265,
+      "description": "",
+      "headers": [],
+      "isPrivate": false,
+      "metaSortKey": 20,
+      "method": "GET",
+      "modified": 1789713389265,
+      "name": "reservation/get",
+      "parameters": [],
+      "parentId": "fld_labshare_reservation_cmds",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ host }}/{{ contextPath }}/{{ awid }}/reservation/get?id={{ reservationId }}",
+      "_type": "request"
+    },
+    {
+      "_id": "req_labshare_res_list",
+      "authentication": {
+        "token": "{{ token }}",
+        "type": "bearer"
+      },
+      "body": {},
+      "created": 1789713389265,
+      "description": "",
+      "headers": [],
+      "isPrivate": false,
+      "metaSortKey": 30,
+      "method": "GET",
+      "modified": 1789713389265,
+      "name": "reservation/list",
+      "parameters": [],
+      "parentId": "fld_labshare_reservation_cmds",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ host }}/{{ contextPath }}/{{ awid }}/reservation/list?equipmentId={{ equipmentId }}&pageIndex=0&pageSize=20",
+      "_type": "request"
+    },
+    {
+      "_id": "req_labshare_res_cancel",
+      "authentication": {
+        "token": "{{ token }}",
+        "type": "bearer"
+      },
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"id\": \"{{ reservationId }}\"\n}"
+      },
+      "created": 1789713389265,
+      "description": "",
+      "headers": [
+        {
+          "id": "pair_req_labshare_res_cancel",
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": 40,
+      "method": "POST",
+      "modified": 1789713389265,
+      "name": "reservation/cancel",
+      "parameters": [],
+      "parentId": "fld_labshare_reservation_cmds",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ host }}/{{ contextPath }}/{{ awid }}/reservation/cancel",
+      "_type": "request"
+    }
+  ]
+}

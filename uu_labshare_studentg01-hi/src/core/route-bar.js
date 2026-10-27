@@ -1,59 +1,24 @@
 //@@viewOn:imports
-import { createVisualComponent, Lsi, useRoute } from "uu5g05";
+import { createVisualComponent } from "uu5g05";
 import Plus4U5App from "uu_plus4u5g02-app";
 
 import Config from "./config/config.js";
-import importLsi from "../lsi/import-lsi.js";
 //@@viewOff:imports
 
-//@@viewOn:constants
-//@@viewOff:constants
-
-//@@viewOn:css
-//@@viewOff:css
-
-//@@viewOn:helpers
-//@@viewOff:helpers
+// App section navigation is provided by sys/uuAppWorkspace/load → data.plus4u5LocalNavigation (see server).
+// Use this wrapper only for non-ContentContainer routes that need route-level actions (Help, etc.), not for menu links.
 
 const RouteBar = createVisualComponent({
-  //@@viewOn:statics
   uu5Tag: Config.TAG + "RouteBar",
-  //@@viewOff:statics
 
-  //@@viewOn:propTypes
   propTypes: {
     ...Plus4U5App.PositionBar.propTypes,
   },
-  //@@viewOff:propTypes
-
-  //@@viewOn:defaultProps
-  defaultProps: {},
-  //@@viewOff:defaultProps
 
   render(props) {
-    //@@viewOn:private
-    const [, setRoute] = useRoute();
-
-    const actionList = [
-      {
-        children: <Lsi import={importLsi} path={["Menu", "home"]} />,
-        onClick: () => setRoute("home"),
-      },
-      {
-        children: <Lsi import={importLsi} path={["Menu", "about"]} />,
-        onClick: () => setRoute("about"),
-        collapsed: true,
-      },
-    ];
-    //@@viewOff:private
-
-    //@@viewOn:render
-    return <Plus4U5App.PositionBar actionList={actionList} {...props} />;
-    //@@viewOff:render
+    return <Plus4U5App.PositionBar actionList={[]} {...props} />;
   },
 });
 
-//@@viewOn:exports
 export { RouteBar };
 export default RouteBar;
-//@@viewOff:exports

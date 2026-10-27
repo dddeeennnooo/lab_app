@@ -6,7 +6,6 @@ import { withRoute } from "uu_plus4u5g02-app";
 
 import Config from "./config/config.js";
 import WelcomeRow from "../core/welcome-row.js";
-import RouteBar from "../core/route-bar.js";
 import importLsi from "../lsi/import-lsi.js";
 //@@viewOff:imports
 
@@ -48,7 +47,6 @@ let Home = createVisualComponent({
     const attrs = Utils.VisualComponent.getAttrs(props);
     return (
       <div {...attrs}>
-        <RouteBar />
         <WelcomeRow left={<Plus4U5Elements.PersonPhoto size="xl" borderRadius="none" />}>
           <Uu5Elements.Text category="story" segment="heading" type="h2">
             <Lsi import={importLsi} path={["Home", "welcome"]} />
