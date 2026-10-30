@@ -35,5 +35,51 @@
   },
   "UuLabshareStudent.Routes.ReservationList": {
     "title": "Rezervace"
+  },
+  "UuLabshareStudent.Location.List.View": {
+    "title": "Lokality",
+    "subtitle": "Seřazeno podle názvu. Další stránku načtete tlačítkem.",
+    "nameColumn": "Název",
+    "mapXColumn": "Mapa X",
+    "mapYColumn": "Mapa Y",
+    "detailAction": "Detail",
+    "editAction": "Upravit",
+    "deleteAction": "Smazat",
+    "createAction": "Vytvořit lokalitu",
+    "createSuccess": "Lokalita byla vytvořena.",
+    "updateSuccess": "Lokalita byla upravena.",
+    "deleteSuccess": "Lokalita byla smazána.",
+    "loadMore": "Načíst další",
+    "showingCount": "Zobrazeno %count% z %total%"
+  },
+  "UuLabshareStudent.Location.DetailModal": {
+    "header": "Detail lokality",
+    "loadError": "Lokalitu se nepodařilo načíst.",
+    "nameLabel": "Název",
+    "mapXLabel": "Mapa X",
+    "mapYLabel": "Mapa Y"
+  },
+  "UuLabshareStudent.Location.CreateUpdateModal": {
+    "createHeader": "Vytvořit lokalitu",
+    "updateHeader": "Upravit lokalitu",
+    "createInfo": "Zadejte název a souřadnice na mapě.",
+    "createSubmit": "Vytvořit",
+    "updateSubmit": "Uložit",
+    "cancel": "Zrušit",
+    "nameLabel": "Název",
+    "mapXLabel": "Mapa X",
+    "mapYLabel": "Mapa Y"
+  },
+  "UuLabshareStudent.Location.DeleteDialog": {
+    "header": "Smazat lokalitu",
+    "info": "Opravdu chcete smazat lokalitu %name%?",
+    "cancel": "Ponechat",
+    "confirm": "Smazat"
+  },
+  "Errors": {
+    "errorNoData": "Data se nepodařilo načíst.",
+    "notFound": "Požadovaná položka nebyla nalezena.",
+    "unauthorized": "Nemáte dostatečná oprávnění.",
+    "default": "Došlo k neočekávané chybě."
   }
 }

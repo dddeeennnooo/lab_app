@@ -35,5 +35,51 @@
   },
   "UuLabshareStudent.Routes.ReservationList": {
     "title": "Reservations"
+  },
+  "UuLabshareStudent.Location.List.View": {
+    "title": "Locations",
+    "subtitle": "Sorted by name. Use load more to fetch the next page.",
+    "nameColumn": "Name",
+    "mapXColumn": "Map X",
+    "mapYColumn": "Map Y",
+    "detailAction": "Detail",
+    "editAction": "Edit",
+    "deleteAction": "Delete",
+    "createAction": "Create location",
+    "createSuccess": "Location was created.",
+    "updateSuccess": "Location was updated.",
+    "deleteSuccess": "Location was deleted.",
+    "loadMore": "Load more",
+    "showingCount": "Showing %count% of %total%"
+  },
+  "UuLabshareStudent.Location.DetailModal": {
+    "header": "Location detail",
+    "loadError": "The location could not be loaded.",
+    "nameLabel": "Name",
+    "mapXLabel": "Map X",
+    "mapYLabel": "Map Y"
+  },
+  "UuLabshareStudent.Location.CreateUpdateModal": {
+    "createHeader": "Create location",
+    "updateHeader": "Edit location",
+    "createInfo": "Enter name and map coordinates.",
+    "createSubmit": "Create",
+    "updateSubmit": "Save",
+    "cancel": "Cancel",
+    "nameLabel": "Name",
+    "mapXLabel": "Map X",
+    "mapYLabel": "Map Y"
+  },
+  "UuLabshareStudent.Location.DeleteDialog": {
+    "header": "Delete location",
+    "info": "Do you really want to delete location %name%?",
+    "cancel": "Keep",
+    "confirm": "Delete"
+  },
+  "Errors": {
+    "errorNoData": "Data could not be loaded.",
+    "notFound": "The requested item was not found.",
+    "unauthorized": "You do not have sufficient rights.",
+    "default": "An unexpected error occurred."
   }
 }

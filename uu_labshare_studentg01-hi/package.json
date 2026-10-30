@@ -14,7 +14,10 @@
     "uu5g05-browser-compatibility": "^1.40.1",
     "uu5g05-elements": "^1.40.1",
     "uu5g05-forms": "^1.40.1",
-    "uu5loaderg01": "^1.7.0"
+    "uu5loaderg01": "^1.7.0",
+    "uu5tilesg02": "^2.28.0",
+    "uu5tilesg02-controls": "^2.28.0",
+    "uu5tilesg02-elements": "^2.28.0"
   },
   "uuBuildSettings": {
     "externals": {}
