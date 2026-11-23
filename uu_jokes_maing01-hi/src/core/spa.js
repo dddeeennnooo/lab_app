@@ -16,7 +16,8 @@ const Jokes = Utils.Component.lazy(() => import("../routes/jokes.js"));
 const Joke = Utils.Component.lazy(() => import("../routes/joke.js"));
 const EquipmentList = Utils.Component.lazy(() => import("../routes/equipment-list.js"));
 const LocationList = Utils.Component.lazy(() => import("../routes/location-list.js"));
-
+const ReservationList = Utils.Component.lazy(() => import("../routes/reservation-list.js"));
+const ReservationDetail = Utils.Component.lazy(() => import("../routes/reservation-detail.js"));
 
 const ROUTE_MAP = {
   "": { redirect: "jokes" },
@@ -27,6 +28,8 @@ const ROUTE_MAP = {
   controlPanel: (props) => <ControlPanel {...props} />,
   equipmentList: (props) => <EquipmentList {...props} />,
   locationList: (props) => <LocationList {...props} />,
+  reservationList: (props) => <ReservationList {...props} />,
+  reservationDetail: (props) => <ReservationDetail {...props} />,
   "*": () => (
     <Uu5Elements.Text category="story" segment="heading" type="h1">
       Not Found

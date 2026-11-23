@@ -95,7 +95,24 @@ const Calls = {
       return Calls.call("post", commandUri, dtoIn);
     },
   },
-
+  Reservation: {
+    list(dtoIn) {
+      const commandUri = Calls.getCommandUri("reservation/list");
+      return Calls.call("get", commandUri, dtoIn);
+    },
+    get(dtoIn) {
+      const commandUri = Calls.getCommandUri("reservation/get");
+      return Calls.call("get", commandUri, dtoIn);
+    },
+    create(dtoIn) {
+      const commandUri = Calls.getCommandUri("reservation/create");
+      return Calls.call("post", commandUri, dtoIn);
+    },
+    cancel(dtoIn) {
+      const commandUri = Calls.getCommandUri("reservation/cancel");
+      return Calls.call("post", commandUri, dtoIn);
+    },
+  },
   loadIdentityProfiles() {
     const commandUri = Calls.getCommandUri("sys/uuAppWorkspace/initUve");
     return Calls.call("get", commandUri, {});
